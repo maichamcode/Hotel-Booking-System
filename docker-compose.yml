@@ -1,0 +1,10 @@
+services:
+  demo:
+    build:
+      context: ./demo
+      dockerfile: Dockerfile
+
+    container_name: demo
+
+    ports:
+      - "8080:8080"
