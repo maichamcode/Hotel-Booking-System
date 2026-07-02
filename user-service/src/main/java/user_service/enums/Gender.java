@@ -1,4 +1,4 @@
-package user_service;
+package user_service.enums;
 
 public enum Gender {
     MALE, FEMALE, OTHER;
