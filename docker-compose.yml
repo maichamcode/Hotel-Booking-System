@@ -20,7 +20,20 @@ services:
       SPRING_PROFILES_ACTIVE: docker
 
     ports:
-      - "8081:8081"
+      - "8081:8080"
+# =========================
+  hotel-service:
+    build:
+      context: ./hotel-service
+      dockerfile: Dockerfile
+
+    container_name: hotel-service
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    ports:
+      - "8082:8080"
 #  ========================
   user-db:
     image: postgres:17
@@ -35,6 +48,21 @@ services:
 
     volumes:
       - user-db-data:/var/lib/postgresql/data
+#  ========================
+  hotel-db:
+    image: postgres:17
+    container_name: hotel-db
+    environment:
+      POSTGRES_DB: hotel_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
 
+    ports:
+      - "5434:5432"
+
+    volumes:
+      - hotel-db-data:/var/lib/postgresql/data
+#  ========================
 volumes:
   user-db-data:
+  hotel-db-data:
