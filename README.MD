@@ -27,7 +27,25 @@ A Hotel Booking System built with Java Spring Boot and Microservice Architecture
 ## Project Phases
 
 - ✅ Phase 1: Infrastructure
-- ⏳ Phase 2: Authentication
+    - Setup docker
+    - Design system
+    - Design API
+    - Setup common
+    - Setup env (local, docker,...)
+- ⏳ Phase 2: user-service
+    - findAll
+    - findById
+    - findByEmail
+    - findByPhone
+    - findByName
+    - Goals for find:
+      -  Xem chi tiết một user: dùng ID.
+      -  Đăng nhập: dùng email.
+      -  Tìm kiếm danh sách: dùng name, email, hoặc một keyword tổng hợp.
+      -  Số điện thoại: dùng khi nghiệp vụ cần xác thực hoặc tra cứu. 
+    - create
+    - update
+    - delete
 - ⏳ Phase 3: Hotel & Room
 - ⏳ Phase 4: Booking
 - ⏳ Phase 5: Payment
