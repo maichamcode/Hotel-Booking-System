@@ -32,7 +32,7 @@ A Hotel Booking System built with Java Spring Boot and Microservice Architecture
     - Design API
     - Setup common
     - Setup env (local, docker,...)
-- ⏳ Phase 2: user-service
+- ✅ Phase 2: user-service
     - findAll
     - findById
     - findByEmail
@@ -46,12 +46,19 @@ A Hotel Booking System built with Java Spring Boot and Microservice Architecture
     - create
     - update
     - delete
-- ⏳ Phase 3: Hotel & Room
+- ✅ Phase 3: Hotel Service
+    - findAll
+    - findById
+    - findByPhoneNumber
+    - createHotel
+    - updateHotel
+    - existsByPhoneNumber
+    - deleteHotel
 - ⏳ Phase 4: Booking
 - ⏳ Phase 5: Payment
 
 ## Run
 
 ```bash
-docker compose up -d
+docker compose up --build -d
 ```
