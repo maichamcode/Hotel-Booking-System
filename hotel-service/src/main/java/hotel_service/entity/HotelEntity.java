@@ -1,6 +1,7 @@
 package hotel_service.entity;
 
 import hotel_service.enums.Status;
+import hotel_service.util.AbstractAuditor;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "hotels")
-public class HotelEntity {
+public class HotelEntity extends AbstractAuditor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,5 +39,6 @@ public class HotelEntity {
 
     private Double longitude;
 
+    @Enumerated(EnumType.STRING)
     private Status status;
 }

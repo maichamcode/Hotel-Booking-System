@@ -46,8 +46,14 @@ A Hotel Booking System built with Java Spring Boot and Microservice Architecture
     - create
     - update
     - delete
-- ⏳ Phase 3: Hotel Service
-  -  
+- ✅ Phase 3: Hotel Service
+    - findAll
+    - findById
+    - findByPhoneNumber
+    - createHotel
+    - updateHotel
+    - existsByPhoneNumber
+    - deleteHotel
 - ⏳ Phase 4: Booking
 - ⏳ Phase 5: Payment
 
