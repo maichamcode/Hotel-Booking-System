@@ -34,6 +34,20 @@ services:
 
     ports:
       - "8082:8080"
+
+# =========================
+  room-service:
+    build:
+      context: ./room-service
+      dockerfile: Dockerfile
+
+    container_name: room-service
+
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+    ports:
+      - "8083:8080"
 #  ========================
   user-db:
     image: postgres:17
@@ -63,6 +77,22 @@ services:
     volumes:
       - hotel-db-data:/var/lib/postgresql/data
 #  ========================
+
+  room-db:
+    image: postgres:17
+    container_name: room-db
+    environment:
+      POSTGRES_DB: room_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+
+    ports:
+      - "5435:5432"
+
+    volumes:
+      - room-db-data:/var/lib/postgresql/data
+#  ========================
 volumes:
   user-db-data:
   hotel-db-data:
+  room-db-data:
