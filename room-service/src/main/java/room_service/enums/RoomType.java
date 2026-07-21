@@ -1,4 +1,4 @@
-package room_service;
+package room_service.enums;
 
 public enum RoomType {
 
