@@ -3,7 +3,9 @@ package room_service.service.Impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import room_service.dto.create.RoomCreateRequestDTO;
+import room_service.dto.create.RoomUpdateRequestDTO;
 import room_service.dto.response.RoomResponseDTO;
 import room_service.entity.RoomEntity;
 import room_service.enums.Status;
@@ -31,6 +33,7 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
+    @Transactional
     public RoomResponseDTO createRoom(RoomCreateRequestDTO request) {
         // check exists room number
         if(roomRepo.existsByRoomNumber(request.getRoomNumber())){
@@ -48,5 +51,21 @@ public class RoomServiceImpl implements RoomService {
         RoomEntity roomEntity = roomRepo.findById(id)
                 .orElseThrow(()-> new RoomNotFoundException(id));
         return roomMapper.toResponseDto(roomEntity);
+    }
+
+    @Override
+    @Transactional
+    public RoomResponseDTO updateRoom(Long id, RoomUpdateRequestDTO roomUpdateRequestDTO) {
+        RoomEntity roomEntity = roomRepo.findById(id)
+                .orElseThrow(()-> new RoomNotFoundException(id));
+        roomMapper.updateRoom(roomUpdateRequestDTO, roomEntity);
+        return roomMapper.toResponseDto(roomEntity);
+    }
+
+    @Override
+    public void deleteRoom(Long id) {
+        RoomEntity roomEntity = roomRepo.findById(id)
+                .orElseThrow(()-> new RoomNotFoundException(id));
+        roomRepo.delete(roomEntity);
     }
 }

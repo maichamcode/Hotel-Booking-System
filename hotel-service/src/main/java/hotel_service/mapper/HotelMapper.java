@@ -6,8 +6,9 @@ import hotel_service.dto.response.HotelResponseDTO;
 import hotel_service.entity.HotelEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface HotelMapper {
     HotelResponseDTO toResponseDTO(HotelEntity hotelEntity);
     HotelEntity toRequestDto(CreateHotelRequestDTO createHotelRequestDTO);

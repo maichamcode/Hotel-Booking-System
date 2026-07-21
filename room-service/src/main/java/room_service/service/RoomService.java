@@ -1,6 +1,8 @@
 package room_service.service;
 
+import ch.qos.logback.classic.model.processor.RootLoggerModelHandler;
 import room_service.dto.create.RoomCreateRequestDTO;
+import room_service.dto.create.RoomUpdateRequestDTO;
 import room_service.dto.response.RoomResponseDTO;
 
 import java.util.List;
@@ -11,7 +13,7 @@ public interface RoomService {
 
     RoomResponseDTO getRoomById(Long id);
 
-//    RoomResponseDTO updateRoom(Long id, UpdateRoomRequest request);
+    RoomResponseDTO updateRoom(Long id, RoomUpdateRequestDTO roomUpdateRequestDTO);
 
-//    void deleteRoom(Long id);
+    void deleteRoom(Long id);
 }

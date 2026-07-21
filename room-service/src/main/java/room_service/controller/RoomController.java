@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import room_service.dto.create.RoomCreateRequestDTO;
+import room_service.dto.create.RoomUpdateRequestDTO;
 import room_service.dto.response.RoomResponseDTO;
 import room_service.service.RoomService;
 
@@ -36,4 +37,17 @@ public class RoomController {
         RoomResponseDTO room = roomService.createRoom(roomCreateRequestDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(room);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<RoomResponseDTO> update(@PathVariable Long id, @RequestBody RoomUpdateRequestDTO roomUpdateRequestDTO){
+        RoomResponseDTO roomResponseDTO = roomService.updateRoom(id, roomUpdateRequestDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(roomResponseDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<RoomResponseDTO> delete(@PathVariable Long id){
+        roomService.deleteRoom(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
 }
